@@ -1,0 +1,52 @@
+/* Root Elements */
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightblue;
+    padding: 5px;
+}
+header a {
+    font-size: clamp(25px, 1vw, 35px);
+    text-decoration: none;
+    color: black;
+    border-radius: 100vw;
+    padding: clamp(12.5px, 0.5vw, 17.5px) clamp(20px, 1vw, 30px);
+}
+header a:hover {
+    cursor: pointer;
+    background-color: skyblue;
+}
+header a#toptitle {
+    font-weight: 700;
+}
+header nav {
+    display: flex;
+}
+
+/* Main */
+div#main {
+    margin: clamp(10px, 2vw, 50px);
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+}
+
+/* At 440px and greater, use buttons, else, use pancake menu */
