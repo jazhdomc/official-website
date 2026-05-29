@@ -10,40 +10,64 @@
 <body>
     <header>
         <a href="/" id="toptitle">JazhdoMC</a>
-        <nav>
-            <a href="/staff.html">Staff</a>
-            <a href="/changelog.html">Changelog</a>
-        </nav>
     </header>
     <div id="main">
-        <h1 id="home">Home</h1>
-        <p>Welcome to JazhdoMC's official website!</p>
-        <h1 id="join">Join</h1>
-        <h2>IPs</h2>
         <noscript>
-            <p>Javascript is required to copy IP addressess.</p>
+            <h1>Home</h1>
+            <p>Welcome to JazhdoMC's official website!</p>
+            <h1>Join</h1>
+            <h2>IPs</h2>
+            <ul>
+                <li>Eagler: wss://jzd.ddns.net:3000</li>
+                <li>Java: jzd.ddns.net:3000</li>
+                <li>Bedrock: Not yet supported</li>
+            </ul>
+            <h2>Discord</h2>
+            <p><a href="https://discord.gg/X6Ab2B35n4" target="_blank">Join the discord server</a> for the latest features and communications.</p>
+            <h2>Page navigation and other features require javascript.</h2>
+            <h2>Server Specs</h2>
+            <p>
+                Computer: Raspberry Pi 5<br>
+                RAM: 8GB LPDDR4X-4267 SDRAM<br>
+                Memory: Kingston 1TB NV2 PCIe 4.0 NVMe M.2<br>
+                Cooling: Raspberry Pi Active Cooler For Raspberry Pi 5<br>
+                Processor: Broadcom BCM2712<br>
+                Graphics: VideoCore VII GPU @ 800MHz<br>
+                Internet: Wifi<br>
+            </p>
         </noscript>
-        <ul>
-            <li>Eagler: wss://jzd.ddns.net:3000 <button onclick="navigator.clipboard.writeText(`wss:\/\/jzd.ddns.net:3000`)">Copy</button></li>
-            <li>Java: jzd.ddns.net:3000 <button onclick="navigator.clipboard.writeText(`jzd.ddns.net:3000`)">Copy</button></li>
-            <li>Bedrock: Not yet supported <button onclick="navigator.clipboard.writeText(`Not yet supported`)">Copy</button></li>
-        </ul>
-        <h2>Discord</h2>
-        <p><a href="https://discord.gg/X6Ab2B35n4" target="_blank">Join the discord server</a> for the latest features and communications.</p>
-        <h2>Server Specs</h2>
-        <p>
-            Computer: Raspberry Pi 5<br>
-            RAM: 8GB LPDDR4X-4267 SDRAM<br>
-            Memory: Kingston 1TB NV2 PCIe 4.0 NVMe M.2<br>
-            Cooling: Raspberry Pi Active Cooler For Raspberry Pi 5<br>
-            Processor: Broadcom BCM2712<br>
-            CPU: roadcom BCM2712 2.4GHz quad-core 64-bit Arm Cortex-A76<br>
-            Graphics: VideoCore VII GPU @ 800MHz<br>
-            Internet: Wifi<br>
-        </p>
     </div>
     <footer>
-        <h2>v0.1.1 - JazhdoMC</h2>
+        <h2>v0.2.0 - JazhdoMC</h2>
+        <script type="module">
+import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
+const header = document.getElementsByTagName('header')[0];
+const main = document.getElementById('main');
+const nav = document.createElement('nav');
+const links = ["home", "staff", "rules", "moderator", "changelog", "sources"];
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+for (let i = 0; i < links.length; i++) {
+    const link = document.createElement('a');
+    link.textContent = capitalizeFirstLetter(links[i]);
+    link.addEventListener('click', () => open(links[i], ((0b110000 >> (links.length - 1 - i)) & 1) ? 'html' : 'md'));
+    nav.append(link);
+}
+header.append(nav);
+async function open(page, type) {
+    let res = await fetch('./' + page + '.' + type);
+    res = await res.text();
+    if (type == 'md') res = marked.parse('# ' + capitalizeFirstLetter(page) + '\n' + res);
+    main.innerHTML = res;
+}
+const searchParams = new URLSearchParams(window.location.search);
+if (searchParams.has("page")) {
+    const parts = searchParams.get("page").split('.');
+    console.log(parts)
+    open(parts[0], parts[1]);
+} else open('home', 1);
+        </script>
     </footer>
 </body>
 </html>
