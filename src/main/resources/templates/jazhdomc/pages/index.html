@@ -6,6 +6,69 @@
     <title>JazhdoMC</title>
     <link rel="icon" sizes="64x64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB7klEQVR4Xu1aQU7EMAxsJa572OcgfoAEH+LMh0BiX4B4Tg97RSpqUVCw4thx3JSS6aVSlTjO2J6xpY7DZZqHjp8RACADUALggI45cAAJQgWgAlABqABUoGMEIIOQQcggZBAy2LEIYBiCDGpkcP44r1Uy3k4/1RK+0fLRrAl7wtqU/WUN/c6dSX2L9+b8W/dZAMg5EjtTui4GrxQAy7nVAEgOp8g1BsWaAVyWUXscKPH+qgwoBSB1+VSkA3BcCUjnakuqOgM4+aQO0prkLiDZ015Mu64ZAFzkaaR3B0CLXK6Oc2qRyow/VQLai9UAlSNGS22X+kwD9IsE95YtLQDaUpHWJTmgpMHxdrjGnpZY6bo1A+a78/D4dB1enk9dvV/vP787wYe3m+4uvwR7fJ90rTBXS7nvOemTGiKpf7f4w/KBZhawHEi5JNWmWvt3iz+7AyAxslZaPS+v7gQth0qSGmyWDkQWX3J7VMOQ5dA4oqly0A46lrNL9jQBINXudgcAjYoWAI4bSqK8ewlo+v9/S4LaCVAiTc5ObSY04wCpBGKeOHQjtPVcsfTvno97Bmw9Vyz9u+fjDoCncy1sAYCthqEW0fM4AxmADMAvMvhFBr/IeLDpUW1ABaACUAGoAFTgqAzu4TdUACoAFehbBb4Ah0sfrk5vNL0AAAAASUVORK5CYII=">
     <link rel="stylesheet" href="/style.css">
+    <style>
+/* Root Elements */
+:root {
+    color-scheme: light dark;
+
+    /* Colors */
+    --blue-selected: light-dark(#0be, #11c);
+    --blue-theme: light-dark(#00b7ef, #009);
+    --text-color: light-dark(#111, #eee);
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue-theme);
+    padding: 5px;
+}
+header a {
+    font-size: clamp(25px, 1vw, 35px);
+    text-decoration: none;
+    border-radius: 100vw;
+    color: var(--text-color);
+    padding: clamp(12.5px, 0.5vw, 17.5px) clamp(20px, 1vw, 30px);
+}
+header a:hover {
+    cursor: pointer;
+    background-color: var(--blue-selected);
+}
+header a#toptitle {
+    font-weight: 700;
+}
+header nav {
+    display: flex;
+}
+
+/* Main */
+div#main {
+    margin: clamp(10px, 2vw, 50px);
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    background-color: var(--blue-theme);
+    display: flex;
+    justify-content: center;
+}
+
+/* At 440px and greater, use buttons, else, use pancake menu */
+    </style>
 </head>
 <body>
     <header>
