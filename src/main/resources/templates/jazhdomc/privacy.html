@@ -1,0 +1,30 @@
+<script>window.addEventListener("load", () => window.checkCookies())</script>
+<h1>Privacy Policy</h1>
+<p id="updated">Last Updated: </p>
+<p id="text"></p>
+<script type="module">
+// @ts-check
+
+// Firebase imports
+import { initializeApp } from "@firebase/app";
+import { doc, getDoc, getFirestore } from "@firebase/firestore";
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyA8ZAK0d32nqqB99mzNds_b7oZ8laNXKMY",
+    authDomain: "jazhdomc.firebaseapp.com",
+    projectId: "jazhdomc",
+    storageBucket: "jazhdomc.firebasestorage.app",
+    messagingSenderId: "194265089094",
+    appId: "1:194265089094:web:8bdb609aa4980c55537647",
+    measurementId: "G-5HWRNSBK5H"
+};
+
+// Initialize firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore();
+
+const privacySnap = await getDoc(doc(db, "legal", "privacy-policy")), lastUpdated = document.getElementById("updated"), content = document.getElementById("text");
+if (lastUpdated) lastUpdated.textContent = "Last Updated: " + privacySnap.get("timestamp").toDate().toISOString() || "Error fetching last updated.";
+if (content) content.textContent = privacySnap.get("content") || "Error fetching content.";
+</script>

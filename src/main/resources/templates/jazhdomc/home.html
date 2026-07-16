@@ -1,0 +1,110 @@
+<style>
+    #popup-back {
+        position: fixed;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #popup {
+        width: 200px;
+        height: min-content;
+        background-color: var(--popup);
+        text-align: center;
+        padding: 20px;
+        border-radius: 30px;
+    }
+</style>
+<h1>Home</h1>
+<p>Welcome to JazhdoMC's official website!</p>
+<h1>Join</h1>
+<h2>IPs</h2>
+<ul>
+    <noscript>
+        <p>Javascript is required to copy the IPs</p>
+    </noscript>
+    <li>Eagler: wss://itsjaz.com <button onclick="navigator.clipboard.writeText(`wss:/\/itsjaz.com`)">Copy</button></li>
+    <li>Java: itsjaz.com <button onclick="navigator.clipboard.writeText(`itsjaz.com`)">Copy</button></li>
+    <li>Bedrock: Not yet supported <button onclick="navigator.clipboard.writeText(`Not yet supported`)">Copy</button></li>
+</ul>
+<h2>Discord</h2>
+<p><a href="https://discord.gg/X6Ab2B35n4" target="_blank">Join the discord server</a> for the latest features and communications.</p>
+<h2>Server Specs</h2>
+<ul>
+    <li>Computer: Raspberry Pi 5</li>
+    <li>
+        Processor:
+        <ul>
+            <li>Model: Broadcom BCM2712</li>
+            <li>CPU:
+                <ul>
+                    <li>Model: ARM Cortex-A76</li>
+                    <li>Cores: 4</li>
+                    <li>Speed: 2.4GHz</li>
+                </ul>
+            </li>
+            <li>GPU:
+                <ul>
+                    <li>Model: VideoCore VII</li>
+                    <li>Cores: 12</li>
+                    <li>Speed: 800MHz</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        RAM:
+        <ul>
+            <li>Capacity: 8GB</li>
+            <li>Generation: LPDDR4X</li>
+            <li>Speed: 4267 MT/s</li>
+            <li>Architecture: SDRAM</li>
+        </ul>
+    </li>
+    <li>
+        Storage:
+        <ul>
+            <li>Brand: Kingston</li>
+            <li>Type: NVMe SSD</li>
+            <li>Capacity: 1TB</li>
+            <li>Interface: PCIe 4.0</li>
+            <li>Shape: M.2</li>
+            <li>Model: NV2</li>
+        </ul>
+    </li>
+    <li>Cooling: Raspberry Pi Active Cooler For Raspberry Pi 5</li>
+    <li>Network:
+        <ul>
+            <li>Type: Ethernet</li>
+            <li>Speed: 1Gbps</li>
+        </ul>
+    </li>
+    <li>Power: 3A @ 5V</li>
+</ul>
+<script type="module">
+    // @ts-check
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.get("cookieCheck") !== null) {
+        const popupBack = document.createElement("div"), popup = document.createElement("div"), title = document.createElement("h1"), p = document.createElement("p"), accept = document.createElement("button"), decline = document.createElement("button");
+        popupBack.id = "popup-back";
+        popup.id = "popup";
+        title.textContent = "Cookie Consent.";
+        p.textContent = "The page you were trying to access requires the consent of cookies for use in reCaptcha v3 for the security of the website. Please accept below or avoid that page.";
+        accept.textContent = "Accept";
+        decline.textContent = "Decline";
+        document.body.style.overflow = "hidden";
+        function resolve(accepted) {
+            popup.remove();
+            localStorage.setItem("cookies", accepted ? "true" : "false");
+            window.redirectUser("home");
+        }
+        accept.addEventListener("click", () => resolve(true));
+        decline.addEventListener("click", () => resolve(false));
+        popup.append(title, p, accept, decline);
+        popupBack.append(popup);
+        document.body.append(popupBack);
+    } 
+</script>

@@ -1,0 +1,59 @@
+<script>window.addEventListener("load", () => window.checkCookies())</script>
+<style>
+    #include {
+        display: flex;
+        flex-direction: column;
+    }
+    #title {
+        width: clamp(200px, 25vw, 300px);
+    }
+    #message {
+        width: clamp(346px, 40vw, 600px);
+        height: 150px;
+    }
+    #success {
+        color: green;
+    }
+    #error {
+        color: red;
+    }
+</style>
+<h1>Help and Support</h1>
+<div id="faq">
+    <h2>FAQ (Frequently Asked Questions)</h2>
+    <h3>What's the server IP?</h3>
+    <p>
+        Eaglercraft: <a href="wss://itsjaz.com">wss://itsjaz.com</a> (Port 443 if you need it)<br>
+        Java Edition: <a href="https://itsjaz.com">itsjaz.com</a> (Port 25565 if you need it)<br>
+        Bedrock: We do not support it yet.
+    </p>
+    <h3>Can I use Hack Client? Can I use a glitch/bug/exploit?</h3>
+    <p>No. Doing so will get you a warning and maybe a ban. Check the <a href="/rules">rules</a> for more info.</p>
+    <h3>Why doesn't my bubble elevator work? Why can't I edit signs?</h3>
+    <p>You are probably on a server running Minecraft Java Ed. version 1.12.2, the mainly used one. In that version, bubble elevators and signs have not been added yet.</p>
+    <h3>Is the server (proxy) online?</h3>
+    <p id="server-status"></p>
+    <p>
+        I try to keep the servers and proxy online as much as possible, however sometimes it may be down.
+        You can check the <a href="https://discord.gg/X6Ab2B35n4" target="_blank">discord server</a> for information about outages.
+    </p>
+</div>
+<div id="bugs">
+    <h2>Bug Reports - Suggestions</h2>
+    <noscript>WARNING: The form uses JavaScript to send and you have not enabled that.</noscript>
+    <p>You can get general help not covered by the FAQ in the discord server or the minecraft server.</p>
+    <form id="form">
+        <h3>Forms of Identification</h3>
+        <div id="include"></div>
+        <h3>Title</h3>
+        <input id="title" placeholder="Type your title here..." autocomplete="on" spellcheck="true" autocorrect="on" autocapitalize="sentences">
+        <h3>Message</h3>
+        <textarea id="message" placeholder="Type your message here..." autocomplete="on" spellcheck="true" autocorrect="on" autocapitalize="sentences"></textarea>
+        <h3>Submit</h3>
+        <p id="success" style="display: none;">Message successfully sent!</p>
+        <p id="error" style="display: none;"></p>
+        <p id="loading" style="display: none;">Sending...</p>
+        <button id="submit" type="submit">Submit</button>
+    </form>
+</div>
+<script type="module" src="/js/help"></script>

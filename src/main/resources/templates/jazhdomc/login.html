@@ -1,0 +1,95 @@
+<script>window.addEventListener("load", () => window.checkCookies())</script>
+<style>
+    #main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #auth-page {
+        margin-top: 10%;
+        width: 350px;
+        background-color: var(--popup);
+        border-radius: 50px;
+        height: 250px;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 60px 0px;
+    }
+    #errorMsg {
+        color: red;
+        margin: 0px;
+        text-align: center;
+    }
+</style>
+<div id="auth-page">
+    <h1 style="margin: 0px;">Sign Up or Sign In</h1>
+    <p id="errorMsg"></p>
+    <!-- Auth button styles -->
+    <style>
+        .auth-button {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -webkit-border-radius: 20px;
+            border-radius: 20px;
+            width: 210px;
+            height: 40px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            background: light-dark(white, #131313);
+        }
+        .auth-button:hover {
+            cursor: pointer;
+        }
+        .auth-button svg {
+            margin-left: 5px;
+        }
+        .auth-button span {
+            padding-left: 10px;
+            font-family: 'Google Sans Medium', 'Roboto', 'San Francisco', Arial, Helvetica, sans-serif;
+            color: light-dark(#1f1f1f, white);
+        }
+        @media (prefers-color-scheme: light) {
+            .auth-button {
+                border: 1px solid #808080;
+            }
+        }
+    </style>
+
+    <!-- Google Auth button -->
+    <div id="google-auth-button" class="auth-button">
+        <svg style="padding: 4px;" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+            <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+            <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+            <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+        </svg>
+        <span>Sign in with Google</span>
+    </div>
+
+    <!-- Microsoft Auth button -->
+    <div id="microsoft-auth-button" class="auth-button">
+        <svg style="padding: 6px;" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="9" height="9" fill="#f25022" />
+            <rect x="0" y="10" width="9" height="9" fill="#00a4ef" />
+            <rect x="10" y="0" width="9" height="9" fill="#7fba00" />
+            <rect x="10" y="10" width="9" height="9" fill="#ffb900" />
+        </svg>
+        <span>Sign in with Microsoft</span>
+    </div>
+
+    <!-- Github Auth button -->
+    <div id="github-auth-button" class="auth-button">
+        <svg width="32" height="32" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M56.7937 84.9688C44.4187 83.4688 35.7 74.5625 35.7 63.0313C35.7 58.3438 37.3875 53.2813 40.2 49.9063C38.9812 46.8125 39.1687 40.25 40.575 37.5313C44.325 37.0625 49.3875 39.0313 52.3875 41.75C55.95 40.625 59.7 40.0625 64.2937 40.0625C68.8875 40.0625 72.6375 40.625 76.0125 41.6563C78.9187 39.0313 84.075 37.0625 87.825 37.5313C89.1375 40.0625 89.325 46.625 88.1062 49.8125C91.1062 53.375 92.7 58.1563 92.7 63.0313C92.7 74.5625 83.9812 83.2813 71.4187 84.875C74.6062 86.9375 76.7625 91.4375 76.7625 96.5938L76.7625 106.344C76.7625 109.156 79.1062 110.75 81.9187 109.625C98.8875 103.156 112.2 86.1875 112.2 65.1875C112.2 38.6563 90.6375 17 64.1062 17C37.575 17 16.2 38.6562 16.2 65.1875C16.2 86 29.4187 103.25 47.2312 109.719C49.7625 110.656 52.2 108.969 52.2 106.438L52.2 98.9375C50.8875 99.5 49.2 99.875 47.7 99.875C41.5125 99.875 37.8562 96.5 35.2312 90.2188C34.2 87.6875 33.075 86.1875 30.9187 85.9063C29.7937 85.8125 29.4187 85.3438 29.4187 84.7813C29.4187 83.6563 31.2937 82.8125 33.1687 82.8125C35.8875 82.8125 38.2312 84.5 40.6687 87.9688C42.5437 90.6875 44.5125 91.9063 46.8562 91.9063C49.2 91.9063 50.7 91.0625 52.8562 88.9063C54.45 87.3125 55.6687 85.9063 56.7937 84.9688Z"
+                fill="light-dark(black, white)" />
+        </svg>
+        <span>Sign in with GitHub</span>
+    </div>
+</div>
+<script type="module" src="/js/login"></script>

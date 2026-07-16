@@ -1,3 +1,4 @@
 .vscode/
 .mvn/
-HELP.md
+node_modules/
+target/
