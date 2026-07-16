@@ -22,12 +22,12 @@
 html {
     width: 100%;
     height: 100%;
+    display: flex;
 }
 body {
     margin: 0px;
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
     color: var(--text-color);
     font-family: sans-serif;
@@ -37,6 +37,8 @@ body {
 /* Header */
 header {
     display: flex;
+    position: sticky;
+    top: 0px;
     justify-content: space-between;
     background-color: var(--blue-theme);
     padding: 5px;
@@ -135,19 +137,20 @@ div#main {
 
 /* Footer */
 footer {
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
     background-color: var(--blue-theme);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     place-items: center;
 }
 footer h2 {
-    margin: 20px;
+    margin: 10px 20px;
+    font-weight: 500;
 }
 footer h2 a {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
     color: var(--text-color);
     text-decoration: none;
 }

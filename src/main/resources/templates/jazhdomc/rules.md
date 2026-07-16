@@ -6,23 +6,24 @@ Format: Rule #.# (ex. Rule 1.2)
 	3. Flying is not allowed except by moderators in spectator mode
 	4. Spectator should not be abused to xray or fly
 	5. Aimbot is not allowed
-	6. Wall climbing is not allowed
+	6. Wall climbing (defined as being in a flying state while next to a wall, as if you are climbing that wall) is not allowed
 	7. Automatic totems are not allowed
-	8. Automatic killing (automatically killing any mobs or players) is not allowed
+	8. Automatic killing (using external software to automatically kill any mobs or players) is not allowed
 	9. Autoclickers are not allowed except for farms and loading chunks
 	10. Hacking into the console is not allowed
     11. Using the creative inventory is not allowed
+    13. Macros (defined as programmed keybinds or similar things that can cause unfair gameplay with pre-programmed external tools) are not allowed.
     12. Any hacks not mentioned are not allowed unless specifically allowed by a mod or admin
 2. Abuse (includes corrupt behavior)
 	1. Moderator ability abuse is not allowed
 	2. Role or name abuse is not allowed
 	3. Impersonation is not allowed
-	4. Using glitches are not allowed
+	4. Using glitches that are not widely considered features is not allowed
 3. Chat
 	1. Spamming is not allowed unless it is a series of message corrections with the intent of correcting the message
 	2. Talking about explicit content is not allowed unless it is a acceptable joke
-	3. Illegal activity according to real life law is not allowed
-	4. Advertising for other servers is not allowed
+	3. Using this server as a tool for breaking real life law (outside of the video game or discord or in some cases the website) is not allowed.
+	4. Excessively advertising or promoting other servers is not allowed
 	5. Any sort of child predation is not allowed
 4. General
     1. Botting is not allowed

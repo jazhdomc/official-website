@@ -36,7 +36,7 @@ async function signIn(authProvider) {
 
             // Add starting info if starting
             const userRef = doc(db, "users", user.uid);
-            if (!(await getDoc(userRef)).exists) {
+            if (!(await getDoc(userRef)).exists()) {
                 await setDoc(userRef, {
                     roles: ["player"],
                     usernames: {

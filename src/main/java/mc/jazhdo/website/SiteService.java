@@ -65,6 +65,7 @@ public class SiteService {
     private static final Map<String, String> HOSTNAMES = new LinkedHashMap<>();
     static {
         HOSTNAMES.put("mc.itsjaz.com", "jazhdomc");
+        HOSTNAMES.put("localhost", "jazhdomc");
     }
 
     /**
@@ -106,7 +107,7 @@ public class SiteService {
     }
 
     private void log(HttpServletRequest request, String msg) {
-        System.out.println("[" + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS) + "] " + request.getLocalAddr() + " -> " + msg);
+        System.out.println("[" + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS) + "] " + request.getRemoteAddr() + " -> " + msg);
     }
 
     /**

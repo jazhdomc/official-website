@@ -1,4 +1,7 @@
 # Changelog
+## v1.0.0 (7/15/2026)
+Added login, dashboard, privacy policy, terms of service, new hierarchy, eaglercraft clients, more guides, and new endpoints for javascript, css, and plain html without the layout interfering. Also changed to a .yaml file for application config. Removed /target from git commits.
+
 ## v0.2.1 (6/30/2026)
 Moved website to a java backend and modified rules.
 

@@ -33,7 +33,7 @@ const miniProgramScripts = {
     "Guides": {
         desc: "A few informational guides describing many parts of the server.",
         perm: 0,
-        func: (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ _roleList) => {
             const list = document.createElement("ul");
             /**
              * Makes a page link with the name and href
@@ -59,7 +59,7 @@ const miniProgramScripts = {
     "Your Roles": {
         desc: "All your roles at JazhdoMC, listed from highest to lowest.",
         perm: 0,
-        func: (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ roleList) => {
             // @ts-ignore
             const staffList = window.getStaffOrder(true);
             staffList.splice(-2);
@@ -92,7 +92,7 @@ const miniProgramScripts = {
     "Mod Log": {
         desc: "A mandatory log of all moderation actions done.",
         perm: 1,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const header1 = document.createElement("h2"), text1 = document.createElement("p"),
             form = document.createElement("form"), input = document.createElement("input"),
             submitInfo = document.createElement("p"), submit = document.createElement("button"),
@@ -174,7 +174,7 @@ const miniProgramScripts = {
     "Change Roles": {
         desc: "Request a change of role(s).",
         perm: 0,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const title1 = document.createElement("h2"), rolesBox = document.createElement("div"),
             addRole = document.createElement("button"), whyText = document.createElement("h3"),
             why = document.createElement("textarea"), submitChanges = document.createElement("button"),
@@ -280,7 +280,7 @@ const miniProgramScripts = {
     "Role Requests": {
         desc: "Approve or deny role requests.",
         perm: 3,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const allRequests = await getDocs(collection(db, "role-requests"));
             let requestCount = 0;
             allRequests.forEach((requestSection) => {
@@ -372,7 +372,7 @@ const miniProgramScripts = {
     "Change Usernames": {
         desc: "Request a change of username(s).",
         perm: 0,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const title1 = document.createElement("h2"), minecraftHeader = document.createElement("h3"), minecraftDiv = document.createElement("div"), minecraftAddMore = document.createElement("button"),
             discordHeader = document.createElement("h3"), discordDiv = document.createElement("div"), discordAddMore = document.createElement("button"), whyText = document.createElement("h3"),
             why = document.createElement("textarea"), status = document.createElement("p"), submit = document.createElement("button"), title2 = document.createElement("h2"), requestsDiv = document.createElement("div");
@@ -550,7 +550,7 @@ const miniProgramScripts = {
     "Username Requests": {
         desc: "Approve or deny username change requests.",
         perm: 1,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const requestsDoc = await getDocs(collection(db, "username-requests")), requestsDiv = document.createElement("div");
             requestsDoc.forEach((requestDoc) => {
                 const /** @type {{ accepted: boolean | undefined, body: string, changes: { discord: { new: string, old: string }[], minecraft: { new: string, old: string }[] }, timestamp: Timestamp }[]} */ requests = requestDoc.get("requests");
@@ -654,7 +654,7 @@ const miniProgramScripts = {
     "Report Viewing": {
         desc: "View suggestions and bug reports",
         perm: 1,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const reportSnap = await getDocs(query(collection(db, "reports"), orderBy("timestamp", "desc")));
             reportSnap.forEach((report) => {
                 // @ts-ignore
@@ -679,7 +679,7 @@ const miniProgramScripts = {
     "User ID Map": {
         desc: "A map of user IDs to their usernames",
         perm: 1,
-        func: async (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: async (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             const userDocs = await getDocs(collection(db, "users"));
             userDocs.forEach((userDoc) => {
                 const userElement = document.createElement("p"), usernames = userDoc.get("usernames");;
@@ -691,7 +691,7 @@ const miniProgramScripts = {
     "Legal Docs": {
         desc: "Edit the legal documents here.",
         perm: 4,
-        func: (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             ["Privacy Policy", "Terms of Service"].forEach(async (documentName) => {
                 const title = document.createElement("h2"), docRef = doc(db, "legal", documentName.toLowerCase().replaceAll(" ", "-")), edit = document.createElement("textarea"), status = document.createElement("p"), save = document.createElement("button");
                 title.textContent = "Update the " + documentName;
@@ -733,7 +733,7 @@ const miniProgramScripts = {
     "Eaglercraft Clients": {
         desc: "A collection of Eaglercraft clients in case you need one.",
         perm: 0,
-        func: (/** @type {import("@firebase/auth").User} */ user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ perm, /** @type {string} */ highestRank, /** @type {string[]} */ roleList) => {
+        func: (/** @type {import("@firebase/auth").User} */ _user, /** @type {HTMLDivElement} */ container, /** @type {Number} */ _perm, /** @type {string} */ _highestRank, /** @type {string[]} */ _roleList) => {
             container.innerHTML += "<p>1.8.8 as a version is faster than 1.12.2 because it contains less features to load. WASM is usually faster than JS versions of the same client version.</p><ul><li><a href=\"/html/eagler/1.8.8-u53-JS\">Eaglercraft 1.8.8 u53 JavaScript</a></li><li><a href=\"/html/eagler/1.8.8-u53-WASM\">Eaglercraft 1.8.8 u53 WASM</a></li><li><a href=\"/html/eagler/1.12.2-JS\">Eaglercraft 1.12.2 JavaScript</a></li><li><a href=\"/html/eagler/1.12.2-WASM\">Eaglercraft 1.12.2 WASM</a></li></ul>";
         }
     }
