@@ -1,4 +1,4 @@
 # mc.itsjaz.com
 
 The official website of JazhdoMC.
-#### OneblockPlugin  © 2026 by JazhdoMC Developers is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+#### JazhdoMC Website  © 2026 by JazhdoMC Developers is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/
